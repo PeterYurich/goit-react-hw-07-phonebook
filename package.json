@@ -2,7 +2,7 @@
   "name": "hw-peteryurich",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://peteryurich.github.io/goit-react-hw-06-phonebook/",
+  "homepage": "https://peteryurich.github.io/goit-react-hw-07-phonebook/",
   "dependencies": {
     "@emotion/styled": "^11.10.4",   
     "axios": "^1.1.2",
