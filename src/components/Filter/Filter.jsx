@@ -8,7 +8,7 @@ const Filter = () => {
   const dispatch = useDispatch();
 
   const onChange = evt => {
-    dispatch(setFilter(evt.target.value));
+    dispatch(setFilter(evt.target.value.trim()));
   };
 
   return (

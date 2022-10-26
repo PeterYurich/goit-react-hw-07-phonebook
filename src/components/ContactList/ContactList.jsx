@@ -18,7 +18,7 @@ const ContactList = () => {
 
   let toRender = filteredContacts || contacts;
 
-  if (filteredContacts.length === 0) {
+  if (filteredContacts.length === 0 && filter !== '') {
     alert(`Nothing found by filter "${filter}"`)
     toRender = contacts;
   }
