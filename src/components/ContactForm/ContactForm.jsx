@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+// import { addContact } from 'redux/contactsSlice';
 import { getContacts } from 'redux/selectors';
 
 import css from '../../components/styles.module.scss';
@@ -34,7 +34,7 @@ const ContactForm = () => {
       alert(`A contact with the name "${newName}" already exists!`)
       return
     }
-    dispatch(addContact({name, phone, id: name}))
+    // dispatch(addContact({name, phone, id: name}))
     setName('')
     setPhone('')
 
