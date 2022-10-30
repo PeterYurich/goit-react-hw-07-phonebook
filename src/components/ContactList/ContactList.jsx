@@ -3,8 +3,7 @@ import { useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { selectContacts, selectFilter } from 'redux/selectors';
-import { deleteContact } from 'redux/operations';
-import { fetchContacts } from 'redux/operations';
+import { deleteContact, fetchContacts } from 'redux/operations';
 
 import css from 'components/styles.module.scss';
 
