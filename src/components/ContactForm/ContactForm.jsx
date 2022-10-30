@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { addContact } from 'redux/contactsSlice';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/operations';
 
 import css from '../../components/styles.module.scss';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
-  const dispatch = useDispatch();
-
-  const controlInput = evt => {
+  const dispatch = useDispatch()
+  
+const controlInput = evt => {
     const { name: inputName, value: inputValue } = evt.target;
 
     switch (inputName) {
@@ -29,12 +29,12 @@ const ContactForm = () => {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    const newName = evt.target.name.value
-    if (contacts.find(person => person.name.toLowerCase() === newName.toLowerCase())) {
-      alert(`A contact with the name "${newName}" already exists!`)
+    if (contacts.find(person => person.name.toLowerCase() === name.toLowerCase())) {
+      alert(`A contact with the name "${name}" already exists!`)
       return
     }
-    // dispatch(addContact({name, phone, id: name}))
+
+    dispatch(addContact({name, phone, id: name}))
     setName('')
     setPhone('')
 
