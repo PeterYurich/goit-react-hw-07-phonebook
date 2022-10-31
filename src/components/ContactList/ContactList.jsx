@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { selectContacts, selectFilter } from 'redux/selectors';
+import { selectContacts, visibleContacts } from 'redux/selectors';
 import { deleteContact, fetchContacts } from 'redux/operations';
 
 import css from 'components/styles.module.scss';
@@ -15,20 +15,16 @@ const ContactList = () => {
   }, [dispatch]);
 
   const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectFilter);
-
-  const filteredContacts = contacts.filter(person =>
-    person.name.toLowerCase().includes(filter.toLowerCase())
-  );
-  let toRender = filteredContacts || contacts;
-
   const handleDelete = (id) => {
     dispatch(deleteContact(id))
   };
 
+  const toRender = useSelector(visibleContacts)
+
   return (
     <ul>
-      {contacts.isLoading}
+      {contacts.isLoading && <div>wait...</div>}
+      {contacts.error && <div>oops! a mistake is happend. Try again!</div> }
       {toRender.map(person => {
         return (
           <li className={css.contact} key={person.id}>
