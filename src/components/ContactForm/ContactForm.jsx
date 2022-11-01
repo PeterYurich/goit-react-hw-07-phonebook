@@ -34,7 +34,7 @@ const controlInput = evt => {
       return
     }
 
-    dispatch(addContact({name, phone, id: name}))
+    dispatch(addContact({name, phone}))
     setName('')
     setPhone('')
 
