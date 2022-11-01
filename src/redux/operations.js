@@ -15,6 +15,7 @@ export const fetchContacts = createAsyncThunk("contacts/fetchAll",
 
 export const addContact = createAsyncThunk("contacts/addContact",
     async (newContact, thunkAPI) => {
+        console.log("Алёна, а можно ли при кнопке submit на форме получить одним объектом значение всех полей формы, где ключом будет name (или что-то другое) инпута, а значением его value?")
         try {
             const res = await axios.post("/contacts", newContact)
             const {name, phone, id} = res.data
